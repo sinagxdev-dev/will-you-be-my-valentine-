@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Like Me?</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            max-width: 400px;
+            text-align: left;
+        }
+
+        .title {
+            font-size: 48px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .heart {
+            color: #ff1493;
+        }
+
+        .options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .option {
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            font-size: 28px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option:hover {
+            transform: translateX(10px);
+        }
+
+        .checkbox {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #333;
+            margin-right: 15px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .option:last-child {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .option:last-child .checkbox {
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .trap-message {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(100, 200, 255, 0.2);
+            border-radius: 10px;
+            text-align: center;
+            font-size: 16px;
+            font-style: italic;
+            display: none;
+        }
+
+        .trap-message.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="title">
+            Do You <span class="heart">♥</span><br>
+            Like Me<span class="heart">?</span>
+        </div>
+        
+        <ul class="options">
+            <li class="option" onclick="showTrap()">
+                <div class="checkbox"></div>
+                <span>YES</span>
+            </li>
+            <li class="option" onclick="showTrap()">
+                <div class="checkbox"></div>
+                <span>DEFINITELY</span>
+            </li>
+            <li class="option" onclick="showTrap()">
+                <div class="checkbox"></div>
+                <span>ABSOLUTELY!!</span>
+            </li>
+        </ul>
+
+        <div class="trap-message" id="trapMessage">
+            🎉 In case you haven't noticed, you've fallen right into my trap! 💕<br>
+            Happy Valentine's Day! 💝
+        </div>
+    </div>
+
+    <script>
+        function showTrap() {
+            document.getElementById('trapMessage').classList.add('show');
+        }
+    </script>
+</body>
+</html>
