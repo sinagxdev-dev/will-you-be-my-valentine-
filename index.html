@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Valentine? 💝</title>
+    <title>Will You Be My Valentine?</title>
     <style>
         * {
             margin: 0;
@@ -226,7 +226,6 @@
 
     <script>
         function showTrap(element) {
-            // Add checkmark to clicked option
             const checkbox = element.querySelector('.checkbox');
             if (!checkbox.innerHTML) {
                 checkbox.innerHTML = '✓';
@@ -237,7 +236,6 @@
                 checkbox.style.justifyContent = 'center';
             }
             
-
             const trapImage = document.getElementById('trapImage');
             if (!trapImage.classList.contains('show')) {
                 setTimeout(() => {
@@ -245,7 +243,6 @@
                 }, 300);
             }
             
-    
             const trapMessage = document.getElementById('trapMessage');
             if (!trapMessage.classList.contains('show')) {
                 setTimeout(() => {
