@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,146 +7,99 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom right, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
-
-        .container {
+        .card {
             background: white;
-            border-radius: 25px;
-            padding: 60px 40px;
-            max-width: 500px;
-            width: 90%;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 50px 30px;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
         }
-
         h1 {
             text-align: center;
             font-size: 3em;
-            margin: 0 0 40px 0;
-            color: #1f2937;
-            font-weight: bold;
+            margin: 0 0 30px 0;
+            color: #333;
         }
-
-        .heart {
-            color: #ec4899;
-        }
-
-        .choices {
+        .pink { color: #ff1493; }
+        ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-
-        .choice {
+        li {
             display: flex;
             align-items: center;
-            padding: 15px;
-            margin: 20px 0;
+            padding: 10px;
+            margin: 15px 0;
             font-size: 2em;
             cursor: pointer;
-            border-radius: 10px;
-            transition: background 0.2s;
+            border-radius: 8px;
         }
-
-        .choice:hover {
-            background: #fce7f3;
-        }
-
-        .box {
-            width: 40px;
-            height: 40px;
-            border: 3px solid #1f2937;
-            margin-right: 20px;
+        li:hover { background: #ffe0f0; }
+        .square {
+            width: 35px;
+            height: 35px;
+            border: 3px solid #333;
+            margin-right: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            color: #ec4899;
+            font-size: 24px;
+            color: #ff1493;
         }
-
-        .choice:last-child {
-            color: #ec4899;
+        li:last-child {
+            color: #ff1493;
             font-weight: bold;
         }
-
-        .result {
+        #trap {
             display: none;
             text-align: center;
             margin-top: 30px;
         }
-
-        .result.active {
-            display: block;
-        }
-
-        .result img {
-            max-width: 100%;
+        #trap img {
+            width: 100%;
+            max-width: 300px;
             border-radius: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-
-        .result p {
-            font-size: 1.5em;
+        #trap p {
+            font-size: 1.3em;
             font-weight: bold;
             color: white;
-            background: linear-gradient(to right, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             padding: 20px;
             border-radius: 10px;
-        }
-
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em;
-            }
-            .choice {
-                font-size: 1.5em;
-            }
-            .box {
-                width: 30px;
-                height: 30px;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Will You Be<br>My Valentine<span class="heart">?</span></h1>
-        
-        <ul class="choices">
-            <li class="choice" onclick="reveal(this)">
-                <div class="box"></div>
-                <span>YES</span>
-            </li>
-            <li class="choice" onclick="reveal(this)">
-                <div class="box"></div>
-                <span>DEFINITELY</span>
-            </li>
-            <li class="choice" onclick="reveal(this)">
-                <div class="box"></div>
-                <span>ABSOLUTELY!!</span>
-            </li>
+    <div class="card">
+        <h1>Will You Be<br>My Valentine<span class="pink">?</span></h1>
+        <ul>
+            <li onclick="show(this)"><div class="square"></div>YES</li>
+            <li onclick="show(this)"><div class="square"></div>DEFINITELY</li>
+            <li onclick="show(this)"><div class="square"></div>ABSOLUTELY!!</li>
         </ul>
-
-        <div class="result" id="result">
-            <img src="https://i.pinimg.com/736x/4a/d7/b7/4ad7b7bab15c4cae9bb821afc36f916f.jpg" alt="Trap">
+        <div id="trap">
+            <img src="https://i.pinimg.com/736x/4a/d7/b7/4ad7b7bab15c4cae9bb821afc36f916f.jpg">
             <p>You've fallen right into my trap!</p>
         </div>
     </div>
-
     <script>
-        function reveal(el) {
-            var box = el.querySelector('.box');
-            box.innerHTML = '✓';
-            
+        function show(el) {
+            el.querySelector('.square').innerHTML = '✓';
             setTimeout(function() {
-                document.getElementById('result').classList.add('active');
-            }, 500);
+                document.getElementById('trap').style.display = 'block';
+            }, 400);
         }
     </script>
 </body>
